@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>D3 Map</title>
+	 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<style>
+		#map{
+			border: 1px solid red;
+		}
+		.boundary {
+		    fill: none;
+		    stroke: #888;
+		    stroke-linejoin: round;
+		}
+	  	svg {
+		    border-style: solid;
+		    border-width: 1px;
+		    border-color: #ccc;
+	  	}
+	</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+(function(){
+	var width = 800,
+		height = 700,
+		projection = d3.geo.mercator();
+
+	
+
+	// Define SVG for drawing
+	var map = d3.select('#map')
+				.append('svg')
+				.attr('width',width)
+				.attr('height',height)
+				.attr('class', 'boundary');;
+
+
+	// Define our projection mapping
+	var path = d3.geo
+				.path()
+				.projection(projection);
+
+
+	// Load our map data
+	d3.json('data/g.topo',function(error, topology){
+		var perifereis = topojson.feature(topology, topology.objects.greece);
+
+		// Setup the scale and translate
+		projection.scale(1).translate([0, 0]);
+	    var b = path.bounds(perifereis);
+	    var s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
+	    var t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+	    projection.scale(s).translate(t);
+
+
+		var greece = map.selectAll('path').data(perifereis.features);
+			greece.enter()
+		       .append('path')
+		       .attr('d', path);
+	    	//Update
+	    	greece.attr('fill', '#eee');
+	    	//Exit
+		    greece.exit().remove();
+
+	});
+
+
+})();
+
+</script>
+</body>
+</html>

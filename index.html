@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Geo Data</title>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <style>
+    	html,body{
+    		height:100%;
+    	}
+
+    	#greece {
+    		width:80%;
+    		height:95%;
+    	}
+    </style>
+</head>
+<body>
+<div id="greece">
+</div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" type="text/javascript"></script>
+<script src="http://d3js.org/topojson.v1.min.js" type="text/javascript"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/chroma.min.js" type="text/javascript"></script>
+<style>
+	.leaflet-container{
+		background-color: #fff;
+	}
+</style>
+<script>
+	var map = L.map('greece').setView([38.5,23.51], 6.8);
+	   
+	L.TopoJSON = L.GeoJSON.extend({  
+	  addData: function(jsonData) {    
+	    if (jsonData.type === "Topology") {
+	      for (var key in jsonData.objects) {
+	        geojson = topojson.feature(jsonData, jsonData.objects[key]);
+	        L.GeoJSON.prototype.addData.call(this, geojson);
+	      }
+	    }    
+	    else {
+	      L.GeoJSON.prototype.addData.call(this, jsonData);
+	    }
+	  }  
+	});
+
+	function setStyle(feature){
+		var periferia = Number(feature.properties.APERIF);
+		var color;
+		if(periferia<10)
+			color = '#f00';
+		else if (periferia<20)
+			color = '#fdcc8a';
+		else if (periferia<<30)
+			color = '#6baed6';
+		else color = '#000';
+		return {fillColor: color,weight:1,color:'black'};
+
+	}
+	$.getJSON('data/nomoi.topojson')
+			.done(addTopoJSON);
+
+
+	function addTopoJSON( geodata ){	
+
+		var colorScale = chroma  
+						  .scale(['#D5E3FF', '#003171'])
+						  .domain([0,1]);
+
+		var perif = 0;
+		function per(feature,layer){
+			perif +=1;
+		}
+
+		var greece = new L.TopoJSON(geodata,{onEachFeature:per});		
+
+		//greece.addData( geodata );
+		greece.setStyle( setStyle );
+		
+		greece.addTo(map);
+
+	}
+
+	// Click event
+	map.on('click', function(e) {        
+        var popLocation= e.latlng;
+        var popup = L.popup()
+					.setLatLng(popLocation)
+					.setContent('<p>Hello world!<br />This is a nice popup.</p>')
+					.openOn(map);        
+    });
+</script>
+</body>
+</html>
