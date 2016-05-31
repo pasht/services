@@ -141,8 +141,9 @@ input[type='submit'] {
     box-shadow: 0 1px 1px rgba(0,0,0,0.5);
     border-radius: 5px;
     background-color:#e6f2ff;
-    min-height: 40%;
-    padding: 10px;
+    min-height: 70%;
+    margin:10px;
+    padding: 0px;
     clear:both;
 }
 
@@ -150,6 +151,34 @@ input[type='submit'] {
     font-size: 25px;
     color: #808080;
     text-shadow: 1px 1px 8px rgba(150, 150, 150, 0.50);
+}
+
+.markiza ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.markiza li{
+    display: inline-block;
+    padding:5px;
+}
+
+.markiza li a{
+    display: inline-block;
+}
+
+.markiza li a:hover{
+    -webkit-box-shadow: 2px 2px 11px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    2px 2px 11px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         2px 2px 11px 0px rgba(50, 50, 50, 0.75);
+
+}
+
+.markiza a img{
+    padding:0;
+    margin:0;
 }
 
 #login{
@@ -209,4 +238,9 @@ input[type='submit'] {
     height:2em;
     text-align: right;
     padding-right:20px;
+}
+
+#logo img{
+    float:right;
+    border:1px;
 }

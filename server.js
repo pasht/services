@@ -62,6 +62,7 @@ passport.use( new LocalStrategy({
         usernameField : 'username',
         passwordField : 'email'
     },function(username,password,done){
+
         if (!username) {
             return done(null, false, { message: 'Incorrect username.' });
         }
@@ -69,8 +70,7 @@ passport.use( new LocalStrategy({
             return done(null, false, { message: 'Incorrect password.' });
         }
         // Use database layer
-        if (username==password){
-            console.log('Successfully authenticated');
+        if (password.indexOf(username)!=-1){
             done(null,{
                 username:username,
                 name:'Paschalis Thriskos',
@@ -138,7 +138,7 @@ app.get('/login',function(request,response){
     response.render('login',{message: request.flash('error')});
 });
 
-//app.post('/login', passport.authenticate('local',{failureRedirect: '/login',successRedirect: '/services'}));
+
 app.post('/login',passport.authenticate('local',{failureRedirect: '/login',successRedirect: '/services',failureFlash : true}));
 
 app.get('/logout', function(req, res){

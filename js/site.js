@@ -9,7 +9,7 @@
  */
 
 // object.watch
-/*if (!Object.prototype.watch) {
+if (!Object.prototype.watch) {
     Object.defineProperty(Object.prototype, "watch", {
         enumerable: false
         , configurable: true
@@ -52,7 +52,6 @@ if (!Object.prototype.unwatch) {
         }
     });
 }
- */
 /**
  * JQuery watch
  * @param id - jQuery selector
