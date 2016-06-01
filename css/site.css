@@ -91,7 +91,7 @@ input[type='submit'] {
     padding:.5em .75em;
     font-size:.85em;
     display:none;
-    min-height: 80;
+    min-height: 80%;
     font-family: Advent Pro;
 }
 
@@ -180,12 +180,38 @@ input[type='submit'] {
     padding:0;
     margin:0;
 }
+.container {
+    width:100%;
+    margin:40px 10px;
+    clear:both;
+    overflow:hidden;
+    position: relative;
+}
+.panel {
+    width:60%;
+    height:288px;
+    display:inline-block;
+    vertical-align:top;
+    margin-right:5px;
+    float:left;
+    background-color: #039;
+    border-radius: 8px;
+    padding:15px;
+    border: 1px #ccc solid;
+}
+
+span.title {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
 
 #login{
+    display:inline-block;
     position:relative;
-    margin: 15% 25%;
-    width: 40%;
-    border: 3px #ccc solid;
+    width: 38%;
+    border: 1px #ccc solid;
     border-radius: 15px;
     overflow:hidden;
     background: linear-gradient(#737373,#fff 98%);
@@ -197,7 +223,6 @@ input[type='submit'] {
 .info {
     float:left;
     width: 30%;
-    float:left;
     padding:20px;
     background-color: #cc3300;
     height: 285px;
@@ -207,7 +232,7 @@ input[type='submit'] {
 #login .form-container{
     float:left;
     height: 285px;
-    width:70%;
+    width:90%;
     padding: 20px;
 }
 
@@ -240,7 +265,51 @@ input[type='submit'] {
     padding-right:20px;
 }
 
+#logo{
+    overflow:hidden;
+}
 #logo img{
     float:right;
     border:1px;
+}
+
+.menu {
+    list-style: none;
+    text-align: center;
+}
+.menu li {
+    display:inline-block;
+    height: 240px;
+    width: 240px;
+    border:1px solid darkblue;
+    position:relative;
+}
+
+.menu li span{
+    position:absolute;
+    width:100%;
+    height:20%;
+    bottom:0;
+    left:0;
+    background-color: rgba(204, 51, 0, 0.7);
+    color:#fff;
+}
+
+.menu a{
+    height:100%;
+    width:100%;
+    display:block;
+
+}
+
+.menu a:hover{
+    -ms-transform: scaleX(1.2); /* IE 9 */
+    -webkit-transform: scaleX(1.2); /* Chrome, Safari, Opera */
+    transform: scaleX(1.2);
+}
+.menu-box{
+    display:inline-block;
+    width:120px;
+    height:120px;
+    border:1px solid red;
 }

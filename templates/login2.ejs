@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Υπηρεσίες ΕΣΠΑ 2014-2020</title>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/jquery.growl.css">
+</head>
+<body>
+<header id="logo">
+    <img src="/images/logo_eu.jpg" style="float:right;" alt="Ευρωπαϊκή Ένωση">
+    <img src="/images/logo_yp.jpg" style="float:right;" alt="Υπουργείο Οικονομίας, Ανάπτυξης και Τουρισμού">
+    <img src="/images/logo.png" style="float:left;" alt="ΕΣΠΑ 2014-2020">
+</header>
+<%if(message||message.length>0){%>
+    <p><%= message%></p>
+<%}%>
+<div id="login">
+    <aside class="info">Ανάκτηση συνθηματικού</aside>
+    <div class="form-container">
+    <form action="/login" method="post" novalidate>
+        <div class="row">
+            <label for="username">Αναγνωριστικό:</label>
+            <input type="text" name="username" id="username"/>
+        </div>
+        <div class="row">
+            <label for="email">Δνση ηλ. ταχυδρομείου:</label>
+            <input type="text" name="email" id="email"/>
+        </div>
+        <div class="row">
+            <input type="submit" value="Ανάκτηση"/>
+        </div>
+    </form>
+    </div>
+</div>
+<!--[if lt IE 9]>
+<section id="browsers"><span>Για την καλύτερη εμφάνιση του ιστοχώρου προτείνουμε</span> <img src="/images/eu4u_browsers.jpg"></section>
+<![endif]-->
+<!--<script type="text/javascript" src="/js/site.js"></script>-->
+<footer class="footer">Με την συνχρηματοδότηση της Ελλάδος και της Ευρωπαϊκής Ένωσης: Ευρωπαϊκό Ταμείο Περιφερειακής Ανάπτυξης</footer>
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/js/jquery.growl.js" type="text/javascript"></script></body>
+</html>
