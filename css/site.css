@@ -184,7 +184,6 @@ input[type='submit'] {
     width:100%;
     margin:40px 10px;
     clear:both;
-    overflow:hidden;
     position: relative;
 }
 .panel {
@@ -279,10 +278,12 @@ span.title {
 }
 .menu li {
     display:inline-block;
-    height: 240px;
-    width: 240px;
+    height: 280px;
+    width: 180px;
     border:1px solid darkblue;
     position:relative;
+    margin:10px;
+    transition: all 0.2s ease-in-out;
 }
 
 .menu li span{
@@ -293,6 +294,9 @@ span.title {
     left:0;
     background-color: rgba(204, 51, 0, 0.7);
     color:#fff;
+    display:none;
+    transition: all 0.3s ease-in-out;
+
 }
 
 .menu a{
@@ -302,10 +306,11 @@ span.title {
 
 }
 
-.menu a:hover{
-    -ms-transform: scaleX(1.2); /* IE 9 */
-    -webkit-transform: scaleX(1.2); /* Chrome, Safari, Opera */
-    transform: scaleX(1.2);
+.menu li:hover{
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
 }
 .menu-box{
     display:inline-block;

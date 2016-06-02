@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Υπηρεσίες ΕΣΠΑ 2014-2020</title>
@@ -20,23 +20,36 @@
 <%if(message||message.length>0){%>
     <p><%= message%></p>
 <%}%>
-<div id="login">
-    <aside class="info">Ανάκτηση συνθηματικού</aside>
-    <div class="form-container">
-    <form action="/login" method="post" novalidate>
-        <div class="row">
-            <label for="username">Αναγνωριστικό:</label>
-            <input type="text" name="username" id="username"/>
-        </div>
-        <div class="row">
-            <label for="email">Δνση ηλ. ταχυδρομείου:</label>
-            <input type="text" name="email" id="email"/>
-        </div>
-        <div class="row">
-            <input type="submit" value="Ανάκτηση"/>
-        </div>
-    </form>
+<div class="container">
+    <div class="panel">
+        <span class="title">Σύστημα διαχείρισης ΕΣΠΑ 2014-2020</span>
     </div>
+    <div id="login">
+        <div class="form-container">
+            <div class="row"><h2>Είσοδος στο σύστημα</h2></div>
+            <form action="/login" method="post" novalidate>
+                <div class="row">
+                    <label for="username">Αναγνωριστικό:</label>
+                    <input type="text" name="username" id="username"/>
+                </div>
+                <div class="row">
+                    <label for="email">Δνση ηλ. ταχυδρομείου:</label>
+                    <input type="text" name="email" id="email"/>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Ανάκτηση"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <ul class="menu">
+        <li><a href="">Menu item 1</a><span>hello</span></li>
+        <li><a href="">Menu item 2</a><span>hello</span></li>
+        <li><a href="">Menu item 3</a><span>hello</span></li>
+        <li><a href="">Menu item 4</a><span>hello</span></li>
+    </ul>
 </div>
 <!--[if lt IE 9]>
 <section id="browsers"><span>Για την καλύτερη εμφάνιση του ιστοχώρου προτείνουμε</span> <img src="/images/eu4u_browsers.jpg"></section>
