@@ -182,7 +182,7 @@ input[type='submit'] {
 }
 .container {
     width:100%;
-    margin:40px 10px;
+    margin:20px 10px;
     clear:both;
     overflow:hidden;
     position: relative;
@@ -277,14 +277,25 @@ span.title {
     list-style: none;
     text-align: center;
 }
+
 .menu li {
     display:inline-block;
     height: 240px;
-    width: 240px;
+    width: 180px;
     border:1px solid darkblue;
     position:relative;
+    transition: all 300ms ease;
 }
 
+.menu li:not(first-child){
+    margin-left:10px;
+}
+
+.menu li:hover{
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Chrome, Safari, Opera */
+    transform: scale(1.1);
+}
 .menu li span{
     position:absolute;
     width:100%;
@@ -302,11 +313,6 @@ span.title {
 
 }
 
-.menu a:hover{
-    -ms-transform: scaleX(1.2); /* IE 9 */
-    -webkit-transform: scaleX(1.2); /* Chrome, Safari, Opera */
-    transform: scaleX(1.2);
-}
 .menu-box{
     display:inline-block;
     width:120px;

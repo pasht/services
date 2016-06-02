@@ -20,23 +20,34 @@
 <%if(message||message.length>0){%>
     <p><%= message%></p>
 <%}%>
-<div id="login">
-    <aside class="info">Ανάκτηση συνθηματικού</aside>
-    <div class="form-container">
-    <form action="/login" method="post" novalidate>
-        <div class="row">
-            <label for="username">Αναγνωριστικό:</label>
-            <input type="text" name="username" id="username"/>
-        </div>
-        <div class="row">
-            <label for="email">Δνση ηλ. ταχυδρομείου:</label>
-            <input type="text" name="email" id="email"/>
-        </div>
-        <div class="row">
-            <input type="submit" value="Ανάκτηση"/>
-        </div>
-    </form>
+<div class="container">
+    <div class="panel">
+        <span>Ολοκληρωμένο Πληροφοριακό Σύστημα</span>
     </div>
+    <div id="login">
+        <div class="form-container">
+        <form action="/login" method="post" novalidate>
+            <div class="row">
+                <label for="username">Αναγνωριστικό:</label>
+                <input type="text" name="username" id="username"/>
+            </div>
+            <div class="row">
+                <label for="email">Δνση ηλ. ταχυδρομείου:</label>
+                <input type="text" name="email" id="email"/>
+            </div>
+            <div class="row">
+                <input type="submit" value="Ανάκτηση"/>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <ul class="menu">
+        <li><a href="#"><span>Menu Item</span></a>></li>
+        <li><a href="#"><span>Menu Item</span></a></li>
+        <li><a href="#"><span>Menu Item</span></a></li>
+    </ul>
 </div>
 <!--[if lt IE 9]>
 <section id="browsers"><span>Για την καλύτερη εμφάνιση του ιστοχώρου προτείνουμε</span> <img src="/images/eu4u_browsers.jpg"></section>
